@@ -12,10 +12,12 @@ repository = "https://github.com/hakolao/bevy_vulkano"
 version = "0.14.0"
 
 [features]
-default = []
+default = ["x11", "wayland"]
 gui = ["egui_winit_vulkano"]
 links = ["gui", "egui_winit_vulkano/links"]
 clipboard = ["gui", "egui_winit_vulkano/clipboard"]
+x11 = ["winit/x11"]
+wayland = ["winit/wayland"]
 
 [dependencies]
 approx = "0.5.1"
@@ -25,7 +27,7 @@ raw-window-handle = "0.5"
 vulkano = "0.34"
 vulkano-shaders = "0.34"
 vulkano-util = "0.34"
-winit = "0.28"
+winit = { version = "0.28", default_features = false }
 
 [dependencies.bevy]
 default-features = false
